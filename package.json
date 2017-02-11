@@ -13,7 +13,6 @@
     "pg-promise": "^5.5.6",
     "restify": "^4.3.0",
     "util": "^0.10.3",
-    "aperture": "git+https://github.com/joyent/node-aperture.git"
   },
   "scripts": {
     "start": "node ./server.js",

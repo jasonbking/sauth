@@ -1,3 +1,9 @@
 [submodule "deps/javascriptlint"]
 	path = deps/javascriptlint
 	url = https://github.com/davepacheco/javascriptlint.git
+[submodule "deps/jsstyle"]
+	path = deps/jsstyle
+	url = https://github.com/davepacheco/jsstyle.git
+[submodule "deps/node-aperture"]
+	path = deps/node-aperture
+	url = https://github.com/joyent/node-aperture.git
