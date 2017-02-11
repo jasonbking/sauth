@@ -16,30 +16,32 @@ assigned associated with those users and groups.
 
 ## Development
 
-Describe steps necessary for development here.
+Setup a postgres instance, and run the following to create the database named
+sauth:
+
+    psql -f lib/db/sql/createdb.sql
+
+(At some point this would likely be added as a make target).
+
+Then:
 
     make all
 
 
 ## Test
 
-Describe steps necessary for testing here.
-
-    make test
-
+Nothing at this time.
 
 ## Documentation
 
-[Joyent Engineering Guide is at docs/index.md](docs/index.md).
+[SAUTH API Guide (maybe)](docs/index.md).
 
-To update the guidelines, edit "docs/index.md" and run `make docs`
+To update the documentation, edit "docs/index.md" and run `make docs`
 to update "docs/index.html". Works on either SmartOS or Mac OS X.
 
 
-## Your Other Sections Here
+## Getting started
 
-Add other sections to your README as necessary. E.g. Running a demo, adding
-development data.
-
+Simply run bin/sauth.js
 
 ## License
