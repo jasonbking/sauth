@@ -7,3 +7,6 @@
 [submodule "deps/node-aperture"]
 	path = deps/node-aperture
 	url = https://github.com/joyent/node-aperture.git
+[submodule "deps/restdown"]
+	path = deps/restdown
+	url = https://github.com/trentm/restdown.git
