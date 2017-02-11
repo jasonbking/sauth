@@ -1,0 +1,23 @@
+{
+  "name": "sauth",
+  "description": "Simple Authorization Prototype",
+  "version": "1.0.0",
+  "author": "Jason King",
+  "private": true,
+  "dependencies": {
+    "assert-plus": "^1.0.0",
+    "bluebird": "^3.4.7",
+    "bunyan": "^1.8.5",
+    "dashdash": "^1.14.1",
+    "node-uuid": "^1.4.7",
+    "pg-promise": "^5.5.6",
+    "restify": "^4.3.0",
+    "util": "^0.10.3",
+    "aperture": "git+https://github.com/joyent/node-aperture.git"
+  },
+  "scripts": {
+    "start": "node ./server.js",
+    "test": "./node_modules/.bin/tape test/*.test.js"
+  },
+  "license": "MPL-2.0"
+}
