@@ -11,4 +11,4 @@ INSERT INTO ${schema~}.group_rules(group_id, rule_uuid, rule)
                 AND a.acct_uuid = $1
                 AND g.group_uuid = $2),
              $3, 4)
-    RETURNING rule_uuid
+    RETURNING *

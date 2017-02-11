@@ -9,4 +9,3 @@ INSERT INTO ${schema~}.users(acct_id, user_uuid, login, name)
              FROM ${schema~}.accounts
             WHERE acct_uuid = ${accountUuid}),
           ${userUuid}, ${login}, ${name})
-  RETURNING user_uuid
