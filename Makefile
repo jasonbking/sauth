@@ -74,7 +74,6 @@
 # Tools
 #
 TAP		:= ./node_modules/.bin/tap
-NAME		:= sauth
 
 #
 # Makefile.defs defines variables used as part of the build process.
@@ -118,7 +117,7 @@ include ./tools/mk/Makefile.smf.defs
 # binary as part of the build process.  Other options are possible -- it depends
 # on the need of your repository.
 #
-NODE_PREBUILT_VERSION=v0.12.14
+NODE_PREBUILT_VERSION=v6.9.5
 ifeq ($(shell uname -s),SunOS)
 	NODE_PREBUILT_TAG=zone
 	include ./tools/mk/Makefile.node_prebuilt.defs
