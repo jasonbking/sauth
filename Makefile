@@ -84,7 +84,7 @@ include ./tools/mk/Makefile.defs
 # Configuration used by Makefile.defs and Makefile.targ to generate 
 # "check" and "docs" targets.
 #
-DOC_FILES	 = index.md api.md
+DOC_FILES	 = index.md api.md demo.md
 JSON_FILES	 = package.json
 JS_FILES	:= $(shell find lib test -name '*.js') tools/bashstyle
 JSL_FILES_NODE	 = $(JS_FILES)
