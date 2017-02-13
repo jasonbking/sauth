@@ -11,4 +11,3 @@ INSERT INTO ${schema~}.groups (group_uuid, account_id, name)
                FROM ${schema~}.accounts a
               WHERE a.acct_uuid = ${accountUuid}),
             ${name})
-    RETURNING group_uuid groupUuid

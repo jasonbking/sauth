@@ -40,7 +40,8 @@ if (process.argv.length < 2 || process.argv[2] === 'help') {
         + 'del <uuid> | addrule <rule> | delrule <rule uuid> | '
         + 'addgroup <group uuid> | delgroup <group uuid> ]');
     console.error('sauth-client.js group [ add <name> | list | del <uuid> | '
-        + 'adduser <uuid> | deluser <uuid> | addrule <rule> | delrule <uuid>');
+        + 'adduser <group uuid> <user uuid> | deluser <group uuid> <user uuid> '
+        + '| addrule <group uuid> <rule> | delrule <group uuid> <rule uuid>');
     console.error('sauth-client.js authorize action target');
     process.exit(1);
 }
@@ -191,7 +192,7 @@ function do_user(argv) {
         });
         break;
 
-    case 'ruledel':
+    case 'delrule':
         options.path += '/' + argv[1] + '/rules/' + argv[2];
         client.del(options, function (err, req, res, obj) {
             if (err && err.statusCode != 200) {
@@ -256,7 +257,29 @@ function do_group(argv) {
         });
         break;
 
-    case 'ruleadd':
+    case 'adduser':
+        options.path += '/' + argv[1] + '/users/' + argv[2];
+        client.put(options, function (err, req, res, obj) {
+            if (err && err.statusCode != 200) {
+                console.log(obj.message);
+                process.exit(1);
+            }
+            console.log(obj);
+        });
+        break;
+
+    case 'deluser':
+        options.path += '/' + argv[1] + '/users/' + argv[2];
+        client.del(options, function (err, req, res, obj) {
+            if (err && err.statusCode != 200) {
+                console.log(obj.message);
+                process.exit(1);
+            }
+            console.log(obj);
+        });
+        break;
+
+    case 'addrule':
         options.path += '/' + argv[1] + '/rules';
         var obj = {
             rule: argv[2]
@@ -271,7 +294,7 @@ function do_group(argv) {
         });
         break;
 
-    case 'ruledel':
+    case 'delrule':
         options.path += '/' + argv[1] + '/rules/' + argv[2];
         client.del(options, function (err, req, res, obj) {
             if (err && err.statusCode != 200) {
