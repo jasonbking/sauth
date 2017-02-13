@@ -23,10 +23,23 @@ sauth:
 
 (At some point this would likely be added as a make target).
 
+Note: for now at least, the server must run on the same system as the
+database, and the postgres user should have a password of 'password' (this
+*is* a demo).  This can be changed by editing lib/db/index.js and adjusting
+the config variable as appropriate.  Obviously in a real system, this would
+be set in a config file.
+
+
 Then:
 
     make all
 
+Then:
+
+    cd bin; ./sauth.js
+
+Optionally, LOG_LEVEL and NPM_ENVIRONMENT can be set to enable additional
+output.
 
 ## Test
 
