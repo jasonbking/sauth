@@ -98,7 +98,7 @@ JSSTYLE_FLAGS	 = -f tools/jsstyle.conf
 # installing Node modules contained within this repo (in this case, the
 # "node-dummy" module).
 #
-REPO_MODULES	 = src/node-dummy
+#REPO_MODULES	 = src/node-dummy
 include ./tools/mk/Makefile.node_deps.defs
 
 #
@@ -147,6 +147,13 @@ include tools/mk/Makefile.manpages.defs
 .PHONY: all
 all: $(SMF_MANIFESTS) | $(TAP) $(REPO_DEPS)
 	$(NPM) rebuild
+
+# This probably isn't the correct magical incantation to make it
+# install the correct aperture module, but it seems to work for
+# the purposes of this demo
+all: node_modules/aperture
+node_modules/aperture: deps/node-aperture/.git
+	$(NPM) install deps/node-aperture
 
 #
 # This example Makefile defines a special target for building manual pages.  You
