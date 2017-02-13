@@ -30,6 +30,21 @@ if (!(process.env.SAUTH_ACCT === 'root') && !process.env.SAUTH_USER) {
     process.exit(1);
 }
 
+if (process.argv.length < 2 || process.argv[2] === 'help') {
+    console.error('Usage:');
+    console.error('SAUTH_ACCT should be set to the account UUID');
+    console.error('SAUTH_USER should be set to the user performing any '
+        + 'user/group/authorize actions');
+    console.error('sauth-client.js account [ list | add <name> | del <uuid> ]');
+    console.error('sauth-client.js user [ add <login> <name> | list | '
+        + 'del <uuid> | addrule <rule> | delrule <rule uuid> | '
+        + 'addgroup <group uuid> | delgroup <group uuid> ]');
+    console.error('sauth-client.js group [ add <name> | list | del <uuid> | '
+        + 'adduser <uuid> | deluser <uuid> | addrule <rule> | delrule <uuid>');
+    console.error('sauth-client.js authorize action target');
+    process.exit(1);
+}
+
 switch (process.argv[2]) {
     case 'account':
         do_account(process.argv.slice(3));
@@ -66,7 +81,7 @@ function do_account(argv) {
         });
         break;
 
-    case 'create':
+    case 'add':
         var obj = {
             name: argv[1]
         };
