@@ -11,4 +11,3 @@ INSERT INTO ${schema~}.user_rules(user_id, rule_uuid, rule)
                 AND a.acct_uuid = $1
                 AND u.user_uuid = $2),
              $3, $4)
-    RETURNING *

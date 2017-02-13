@@ -176,7 +176,7 @@ function do_user(argv) {
         });
         break;
 
-    case 'ruleadd':
+    case 'addrule':
         options.path += '/' + argv[1] + '/rules';
         var obj = {
             rule: argv[2]
