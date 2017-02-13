@@ -34,7 +34,23 @@ XXX: Better response if UUID is not found?
 
 ## PUT /account
 
-Create an account.
+Create an account.  This also creates an initial admin account called 'admin'
+with fill permissions on everything.  Return JSON similiar to:
+
+    {
+      "name": "blah",
+      "acctUuid": "205b5d31-e5c9-44a3-a682-b6c645945f8e",
+      "admin": {
+        "accountUuid": "205b5d31-e5c9-44a3-a682-b6c645945f8e",
+        "userUuid": "06f6fa8a-bca0-46d3-af9e-27f5c6e22dd3",
+        "login": "admin",
+        "name": "Administrator",
+        "rule": {
+          "ruleUuid": "75f6cebb-8bdc-4afc-bfbe-180accfe3a2b",
+          "rule": "CAN * anything"
+        }
+      }
+    }
 
 ## DELETE /account/:id
 

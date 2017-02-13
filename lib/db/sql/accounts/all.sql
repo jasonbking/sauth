@@ -1,3 +1,3 @@
-SELECT acct_uuid acctUUid
+SELECT acct_uuid accountUuid
       ,name
   FROM ${schema~}.accounts
