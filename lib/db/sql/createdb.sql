@@ -39,7 +39,7 @@ CREATE TABLE accounts (
 -- contain whitespace
 CREATE TABLE users (
     id          SERIAL PRIMARY KEY,
-    acct_id	INTEGER REFERENCES accounts(id) NOT NULL ON DELETE CASCADE,
+    acct_id	INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
     user_uuid   UUID NOT NULL UNIQUE,
     -- the value that would be used to login to a system
     login       VARCHAR(32) NOT NULL CHECK (login !~ E'\\s+'),
@@ -54,7 +54,7 @@ CREATE TABLE users (
 CREATE TABLE groups (
     id              SERIAL PRIMARY KEY,
     group_uuid      UUID NOT NULL UNIQUE,
-    account_id      INTEGER REFERENCES accounts(id) NOT NULL ON DELETE CASCADE,
+    account_id      INTEGER REFERENCES accounts(id) ON DELETE CASCADE,
     name            VARCHAR(32) NOT NULL CHECK (name !~ E'\\s+'),
     CONSTRAINT group_unique_in_acct UNIQUE(account_id, name)
 );
@@ -63,8 +63,8 @@ CREATE TABLE groups (
 -- A user can be in 0 or more groups, and groups can have
 -- 0 or more members (users)
 CREATE TABLE user_groups (
-    user_id	INTEGER REFERENCES users(id) NOT NULL ON DELETE CASCADE,
-    group_id    INTEGER REFERENCES groups(id) NOT NULL ON DELETE CASCADE,
+    user_id	INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    group_id    INTEGER REFERENCES groups(id) ON DELETE CASCADE,
     UNIQUE (user_id, group_id)
 );
 
@@ -74,14 +74,14 @@ CREATE TABLE user_groups (
 CREATE TABLE user_rules (
     id		SERIAL PRIMARY KEY,
     rule_uuid   uuid NOT NULL UNIQUE,
-    user_id     INTEGER REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+    user_id     INTEGER REFERENCES users(id) ON DELETE CASCADE,
     rule        TEXT NOT NULL
 );
 
 CREATE TABLE group_rules (
     id		SERIAL PRIMARY KEY,
     rule_uuid   uuid NOT NULL UNIQUE,
-    group_id    INTEGER REFERENCES groups(id) NOT NULL ON DELETE CASCADE, 
+    group_id    INTEGER REFERENCES groups(id) ON DELETE CASCADE, 
     rule        TEXT NOT NULL
 );
 
